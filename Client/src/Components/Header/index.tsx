@@ -13,7 +13,7 @@ const Header = () => {
             {config.APP_NAME}
           </h1>
         </Link>
-        <div className="flex space-x-10">
+        <div className="flex space-x-4">
           <HeaderLinks />
           <AuthButtons />
         </div>

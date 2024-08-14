@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import Loader from "../Components/Loader";
 import { useState } from "react";
+import PageMeta from "../Utils/pageMeta";
+import config from "../Config";
 
 const Verify = () => {
   const [loading, setLoading] = useState(false);
   return (
     <div className="resetContainer">
+      <PageMeta title={`${config.APP_NAME} | Verification`} description={`${config.APP_NAME} | Identity Verification Page`} />
+
       <div className="space-y-10 w-full">
         <div className="space-y-1">
           <div className="text-3xl font-semibold">

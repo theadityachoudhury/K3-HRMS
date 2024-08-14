@@ -97,7 +97,7 @@ export const navLinks = [
     "isDisabled": false,
     "hasIcon": false,
     "icon": "",
-    "isAuth": false,
+    "isAuth": true,
     "nestedLinks": [
       {
         "title": "KIIT Form",
@@ -124,53 +124,5 @@ export const navLinks = [
         "isAuth": false
       }
     ]
-  },
-  {
-    "title": "External Link",
-    "link": "https://example.com",
-    "isButton": false,
-    "isLink": true,
-    "isNested": false,
-    "isExternal": true,
-    "isDisabled": false,
-    "hasIcon": false,
-    "icon": "",
-    "isAuth": false
-  },
-  {
-    "title": "Disabled Link",
-    "link": "#",
-    "isButton": false,
-    "isLink": true,
-    "isNested": false,
-    "isExternal": false,
-    "isDisabled": true,
-    "hasIcon": false,
-    "icon": "",
-    "isAuth": false
-  },
-  {
-    "title": "Auth Required",
-    "link": "/dashboard",
-    "isButton": false,
-    "isLink": true,
-    "isNested": false,
-    "isExternal": false,
-    "isDisabled": false,
-    "hasIcon": false,
-    "icon": "",
-    "isAuth": true
-  },
-  {
-    "title": "Action Button",
-    "link": "/action",
-    "isButton": true,
-    "isLink": false,
-    "isNested": false,
-    "isExternal": false,
-    "isDisabled": false,
-    "hasIcon": false,
-    "icon": "",
-    "isAuth": false
   }
 ]

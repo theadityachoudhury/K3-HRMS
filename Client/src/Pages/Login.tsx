@@ -11,6 +11,7 @@ import Loader from "../Components/Loader";
 import { TokenResponse, useGoogleLogin } from "@react-oauth/google";
 import useToast from "../Hooks/useToast";
 import config from "../Config";
+import PageMeta from "../Utils/pageMeta";
 
 type LoginFormData = z.infer<typeof loginSchema>;
 
@@ -113,6 +114,7 @@ const Login = () => {
   if (ready && !authenticated)
     return (
       <div className="loginContainer">
+        <PageMeta title={`${config.APP_NAME} | Login`} description={`${config.APP_NAME} | Login Page`} />
         <div className="space-y-10 w-full">
           <div className="space-y-1">
             <div className="text-3xl font-semibold">
@@ -234,7 +236,7 @@ const Login = () => {
               {/* Submit */}
               <div>
                 <button
-                  className="w-full p-3 border border-black hover:bg-black hover:text-white duration-300 ease-linear text-xl"
+                  className="w-full p-3 border border-black bg-black text-white hover:bg-white hover:text-black duration-300 ease-linear text-xl"
                   onClick={handleSubmit(onSubmit)}
                 >
                   {loading ? <Loader size={28} /> : "Login"}

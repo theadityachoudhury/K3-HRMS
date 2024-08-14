@@ -67,7 +67,7 @@ const HeaderLinks = () => {
         <button
           key={index}
           onClick={() => window.location.href = link.link}
-          className="bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-500 flex items-center"
+          className="bg-black text-white py-2 px-4 rounded hover:bg-white hover:text-black duration-300 ease-linear border border-black flex items-center"
         >
           {link.icon && <img src={link.icon} alt={link.title} className="inline-block mr-2" />}
           {link.title}

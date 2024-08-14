@@ -11,6 +11,8 @@ import Loader from "../Components/Loader";
 import { TokenResponse, useGoogleLogin } from "@react-oauth/google";
 import useToast from "../Hooks/useToast";
 import instance from "../Axios";
+import PageMeta from "../Utils/pageMeta";
+import config from "../Config";
 
 type RegisterFormData = z.infer<typeof registerSchema>;
 
@@ -98,6 +100,8 @@ const Register = () => {
   if (ready && !authenticated)
     return (
       <div className="registerContainer">
+        <PageMeta title={`${config.APP_NAME} | Register`} description={`${config.APP_NAME} | Registration Page`} />
+
         <div className="space-y-10 w-full">
           <div className="space-y-1 text-center">
             <div className="text-3xl font-semibold">

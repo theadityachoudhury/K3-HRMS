@@ -4,6 +4,8 @@ import { useUserContext } from "../Hooks/useUserContext";
 import Loader from "../Components/Loader";
 import useToast from "../Hooks/useToast";
 import instance from "../Axios";
+import PageMeta from "../Utils/pageMeta";
+import config from "../Config";
 
 const Reset = () => {
   const [loading, setLoading] = useState(false);
@@ -55,6 +57,8 @@ const Reset = () => {
   if (ready && !authenticated)
     return (
       <div className="resetContainer">
+        <PageMeta title={`${config.APP_NAME} | Forget Password`} description={`${config.APP_NAME} | Password reset Page`} />
+
         <div className="space-y-10 w-full">
           <div className="space-y-1">
             <div className="text-3xl font-semibold">

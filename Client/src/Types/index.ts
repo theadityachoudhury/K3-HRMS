@@ -68,3 +68,23 @@ export interface OTPInputProps {
   inputStyle?: CSSProperties;
   inputClassName?: string;
 }
+
+
+export interface FormField {
+  label: string;
+  name: string;
+  type: string;
+  placeholder?: string;
+  options?: string[]; // For select fields
+  disabled?: boolean;
+  size: 'lg' | 'md' | 'sm' | 'xs'; // Size of the field
+}
+
+export interface CustomFormProps {
+  title: string;
+  fields: FormField[];
+  onSubmit: (data: Record<string, any>) => void;
+  onChange?: (data: Record<string, any>) => void;
+  initialValues?: Record<string, any>;
+  disabledAll?: boolean;
+}
