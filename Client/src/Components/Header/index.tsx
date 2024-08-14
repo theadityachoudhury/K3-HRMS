@@ -7,7 +7,7 @@ import MobileMenu from "./MobileMenu";
 const Header = () => {
   return (
     <header className="text-xl p-4 sm:px-8 sm:py-4 bg-white text-black shadow-sm">
-      <div className="hidden sm:flex justify-between items-center">
+      <div className="hidden lg:flex justify-between items-center">
         <Link to="/">
           <h1 className="text-3xl font-bold hover:text-indigo-500">
             {config.APP_NAME}
@@ -19,7 +19,7 @@ const Header = () => {
         </div>
       </div>
 
-      <div className="flex sm:hidden justify-between items-center">
+      <div className="flex lg:hidden justify-between items-center">
         <MobileMenu />
         <Link to="/">
           <h1 className="text-3xl font-bold hover:text-indigo-500">

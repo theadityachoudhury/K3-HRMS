@@ -338,7 +338,9 @@ export const continueWithGoogle = async (req: customRequest, res: Response, next
             throw new Error('Error fetching user data from google');
         }
 
-        if (payload.email.slice("@").toLowerCase() !== "kiit.ac.in") {
+        console.log(payload.email.split("@")[1].toLowerCase());
+
+        if (payload.email.split("@")[1].toLowerCase() !== "kiit.ac.in") {
             return responseHandler(
                 {
                     status: 403,

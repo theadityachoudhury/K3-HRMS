@@ -8,6 +8,12 @@ import Footer from "./Components/Footer";
 import ResetLink from "./Pages/ResetLink";
 import Profile from "./Pages/Profile";
 import ProtectedRoute from "./Components/ProtectedRoute";
+import KIIT from "./Components/Forms/KIIT";
+import KIMS from "./Components/Forms/KIMS";
+import Hospitality from "./Components/Forms/Hospitality";
+
+import Forms from "./Components/Forms";
+
 import Verify from "./Pages/Verify";
 
 function App() {
@@ -23,6 +29,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/reset" element={<Reset />} />
             <Route path="/reset/:id" element={<ResetLink />} />
+
+            <Route path="/forms" element={<Forms />}>
+              <Route path="kiit" element={<KIIT />} />
+              <Route path="kims" element={<KIMS />} />
+              <Route path="hospitality" element={<Hospitality />} />
+            </Route>
 
           </Route>
           {/* Private Routes Here */}
