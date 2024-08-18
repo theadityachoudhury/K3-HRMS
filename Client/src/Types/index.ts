@@ -78,6 +78,7 @@ export interface FormField {
   options?: string[]; // For select fields
   disabled?: boolean;
   size: 'lg' | 'md' | 'sm' | 'xs'; // Size of the field
+  accept?: string; // For file input
 }
 
 export interface CustomFormProps {

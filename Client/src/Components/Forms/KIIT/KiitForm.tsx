@@ -15,15 +15,16 @@ const KiitForm = () => {
     const formFields: FormField[] = [
         { label: 'Admission Ref. No.', name: 'admissionNo', type: 'text', placeholder: 'Enter Admission Reference Number', disabled: false, size: 'lg' },
         { label: 'Student Name', name: 'studentName', type: 'text', placeholder: 'Enter Student name', disabled: false, size: 'lg' },
-        { label: 'Relation', name: 'relation', type: 'select', options: ['Child', 'Child of Friend', 'Child of Relative', 'Other'], disabled: false, size: 'md' },
+        { label: 'Relation', name: 'relation', type: 'select', options: ['Child', 'Child of Friend', 'Child of Relative', 'Other'], disabled: false, size: 'lg' },
         { label: 'Department', name: 'department', type: 'select', options: ['ITI', 'Polytechnique', 'Engineering'], disabled: false, size: 'md' },
         { label: 'Address', name: 'address', type: 'text', placeholder: 'Enter your address', disabled: false, size: 'md' },
         { label: 'City', name: 'city', type: 'text', placeholder: 'Enter your city', disabled: false, size: 'md' },
         { label: 'State', name: 'state', type: 'text', placeholder: 'Enter your state', disabled: false, size: 'md' },
-        { label: 'Pincode', name: 'pincode', type: 'text', placeholder: 'Enter your pincode', disabled: false, size: 'md' },
-        { label: 'EmailId', name: 'email', type: 'email', placeholder: 'Enter your email', disabled: false, size: 'md' },
-        { label: 'Mobile', name: 'mobile', type: 'text', placeholder: 'Enter your mobile number', disabled: false, size: 'sm' },
-        { label: 'Amount', name: 'amount', type: 'text', placeholder: 'Enter the amount paid', disabled: false, size: 'sm' },
+        { label: 'Pincode', name: 'pincode', type: 'text', placeholder: 'Enter your pincode', disabled: false, size: 'xs' },
+        { label: 'EmailId', name: 'email', type: 'email', placeholder: 'Enter your email', disabled: false, size: 'xs' },
+        { label: 'Mobile', name: 'mobile', type: 'text', placeholder: 'Enter your mobile number', disabled: false, size: 'xs' },
+        { label: 'Amount', name: 'amount', type: 'text', placeholder: 'Enter the amount paid', disabled: false, size: 'xs' },
+        { label: 'Profile Picture', name: 'profilePicture', type: 'file', accept: 'image/*', size: 'lg' },
     ];
 
 
