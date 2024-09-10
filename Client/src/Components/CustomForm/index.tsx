@@ -132,6 +132,7 @@
 import React, { useEffect } from 'react';
 import classNames from 'classnames';
 import { XCircleIcon } from 'lucide-react'; // Assuming you're using Lucide Icons for a close button
+import { z, ZodSchema } from 'zod';
 
 interface FormField {
   label: string;
@@ -151,6 +152,7 @@ interface CustomFormProps {
   onChange?: (data: Record<string, any>) => void; // New prop to handle form changes
   initialValues?: Record<string, any>; // New prop for initial values
   disabledAll?: boolean;
+  validationSchema?: ZodSchema; // New prop for validation schema
 }
 
 const sizeToClasses = {
@@ -160,9 +162,10 @@ const sizeToClasses = {
   xs: 'md:col-span-1 lg:col-span-1',
 };
 
-const CustomForm: React.FC<CustomFormProps> = ({ title, fields, onSubmit, onChange, initialValues = {}, disabledAll = false }) => {
+const CustomForm: React.FC<CustomFormProps> = ({ title, fields, onSubmit, onChange, initialValues = {}, disabledAll = false, validationSchema }) => {
   const [formData, setFormData] = React.useState<Record<string, any>>(initialValues);
   const [images, setImages] = React.useState<File[]>([]);
+  const [errors, setErrors] = React.useState<Record<string, string>>({});
 
   useEffect(() => {
     setFormData(initialValues); // Set initial values when the component is mounted or when initialValues changes
@@ -189,12 +192,32 @@ const CustomForm: React.FC<CustomFormProps> = ({ title, fields, onSubmit, onChan
     }
   };
 
+  const validateForm = () => {
+    if (validationSchema) {
+      const result = validationSchema.safeParse(formData);
+      if (!result.success) {
+        const newErrors: Record<string, string> = {};
+        result.error.errors.forEach((error: any) => {
+          if (error.path.length > 0) {
+            newErrors[error.path[0] as string] = error.message;
+          }
+        });
+        setErrors(newErrors);
+        return false;
+      }
+    }
+    return true;
+  };
+
   const handleRemoveImage = (index: number) => {
     setImages((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) {
+      return;
+    }
     onSubmit(formData);
   };
 
@@ -317,6 +340,9 @@ const CustomForm: React.FC<CustomFormProps> = ({ title, fields, onSubmit, onChan
                 </div>
               </div>
             ) : null}
+            {errors[field.name] && (
+              <span className="text-red-500 text-sm mt-1">{errors[field.name]}</span>
+            )}
           </div>
         ))}
         <div className="col-span-1 md:col-span-4 lg:col-span-4">

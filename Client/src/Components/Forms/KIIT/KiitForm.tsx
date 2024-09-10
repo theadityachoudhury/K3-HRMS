@@ -1,6 +1,7 @@
 import Modal from "../../Modal"
 import CustomForm from "../../CustomForm";
 import { FormField } from "../../../Types";
+import { z } from "zod";
 
 const KiitForm = () => {
 
@@ -27,6 +28,16 @@ const KiitForm = () => {
         { label: 'Profile Picture', name: 'profilePicture', type: 'file', accept: 'image/*', size: 'lg' },
     ];
 
+    const formSchema = z.object({
+        admissionNo: z.string().nonempty("Admission Reference No. is required"),
+        studentName: z.string().nonempty("Student name is required"),
+        relation: z.enum(['Child', 'Child of Friend', 'Child of Relative', 'Other']),
+        department: z.enum(['ITI', 'Polytechnique', 'Engineering']),
+        email: z.string().email("Invalid email address"),
+        mobile: z.string().regex(/^[0-9]{10}$/, "Invalid mobile number"),
+        // Add other fields as needed...
+    });
+
 
 
     const initialValues = {
@@ -43,7 +54,7 @@ const KiitForm = () => {
     return (
         <div>
             <Modal buttonText="Add">
-                <CustomForm title="Add Candidates" fields={formFields} onSubmit={handleFormSubmit} onChange={handleFormChange} initialValues={initialValues} />
+                <CustomForm title="Add Candidates" fields={formFields} onSubmit={handleFormSubmit} onChange={handleFormChange} initialValues={initialValues} validationSchema={formSchema} />
             </Modal>
 
         </div>
